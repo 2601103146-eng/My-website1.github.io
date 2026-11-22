@@ -5,14 +5,17 @@
 .home {
     position: relative;
     width: 100%;
-    min-height: 650px;
-    background: linear-gradient(
-        to bottom,
-        #011A33 0%,
-        #0A2F4A 55%,
-        #011A33 100%
-    );
+    min-height: 85vh;
+    background-color: #011A33;
+    background-image: radial-gradient(rgba(0, 210, 215, 0.3) 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+    color: #FFFFFF;
     overflow: hidden;
+}
+
+.home,
+.home * {
+    color: #FFFFFF;
 }
 
 /* GREETING */
@@ -47,6 +50,7 @@
     position: absolute;
     left: 5%;
     top: 35%;
+    max-width: 240px;
     color: #FFFFFF;
 }
 
@@ -55,7 +59,7 @@
     position: absolute;
     right: 5%;
     top: 35%;
-    width: 180px;
+    width: 200px;
     color: #FFFFFF;
 }
 
@@ -71,6 +75,7 @@
     font-size: 65px;
     font-weight: 900;
     line-height: 0.9;
+    color: #FFFFFF;
 }
 
 /* PROFESSION */
@@ -83,7 +88,33 @@
 
 .home-title h3 {
     font-size: 25px;
-    line-height: 1;
+    line-height: 1.1;
+    color: #FFFFFF;
+}
+
+/* APPLY DESKTOP ANIMATIONS */
+.profile-image {
+    animation: slideUp 1.2s ease-out forwards;
+}
+
+.greeting {
+    animation: slideDown 1s ease-out forwards;
+}
+
+.left-description {
+    animation: slideRight 1s ease-out 0.5s both;
+}
+
+.right-description {
+    animation: slideLeft 1s ease-out 0.5s both;
+}
+
+.home-name {
+    animation: slideRight 1s ease-out 0.8s both;
+}
+
+.home-title {
+    animation: slideLeft 1s ease-out 0.8s both;
 }
 
 
@@ -98,11 +129,18 @@
         align-items: center;
         justify-content: flex-start;
         min-height: auto;
-        padding: 40px 20px 50px;
+        padding: 36px 20px 44px;
+        gap: 14px;
         text-align: center;
+        color: #FFFFFF;
     }
 
-    /* Reset absolute positioning for flow layout on mobile */
+    .home,
+    .home * {
+        color: #FFFFFF;
+    }
+
+    /* Stack elements cleanly in normal document flow */
     .greeting,
     .left-description,
     .right-description,
@@ -116,51 +154,58 @@
         left: auto;
         right: auto;
         width: 100%;
-        max-width: 100%;
-        margin-bottom: 20px;
+        max-width: 340px;
+        margin: 0;
+        animation: none;
     }
 
     .greeting {
-        font-size: 48px;
-        margin-bottom: 10px;
+        order: 1;
+        font-size: 46px;
+        line-height: 1.05;
     }
 
-    .left-description, 
-    .right-description {
+    .left-description {
+        order: 2;
         font-size: 14px;
         line-height: 1.5;
-        margin-bottom: 15px;
+    }
+
+    .right-description {
+        order: 3;
+        font-size: 14px;
+        line-height: 1.5;
     }
 
     .profile-image {
-        order: 3; /* Places photo naturally in vertical flow */
-        margin: 15px 0 25px;
+        order: 4;
+        display: flex;
+        justify-content: center;
+        margin: 8px 0;
     }
 
     .profile-image img {
         width: 100%;
-        max-width: 280px;
+        max-width: 240px;
         height: auto;
         border-radius: 10px;
     }
 
+    .home-name {
+        order: 5;
+    }
+
     .home-name h2 {
-        font-size: 40px;
-        line-height: 1.1;
+        font-size: 38px;
+        line-height: 1.05;
+    }
+
+    .home-title {
+        order: 6;
     }
 
     .home-title h3 {
-        font-size: 20px;
-        margin-top: 5px;
-    }
-
-    /* Reset animations on mobile to prevent alignment bugs */
-    .profile-image,
-    .greeting,
-    .left-description,
-    .right-description,
-    .hero-name,
-    .home-title {
-        animation: none;
+        font-size: 18px;
+        line-height: 1.2;
     }
 }
